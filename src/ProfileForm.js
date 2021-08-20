@@ -21,7 +21,7 @@ import "./ProfileForm.css";
  *  Routes -> ProfileForm
  */
 export default function ProfileForm({ update }) {
-  const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     firstName: currentUser.firstName,
