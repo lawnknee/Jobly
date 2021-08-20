@@ -22,7 +22,7 @@ import UserContext from "./userContext.js";
  *  App -> Routes
  */
 export default function Routes({ login, register, update }) {
-  const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   if (currentUser) {
     return (

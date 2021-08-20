@@ -22,7 +22,7 @@ import "./LoginForm.css";
  *  App -> Routes -> LoginForm
  */
 export default function LoginForm({ login }) {
-  const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   const history = useHistory();
   const [formData, setFormData] = useState({});

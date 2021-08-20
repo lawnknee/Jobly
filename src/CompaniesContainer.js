@@ -25,7 +25,7 @@ import debounce from 'lodash.debounce';
  *  CompaniesContainer -> { CompanyList, SearchBar }
  */
 export default function CompaniesContainer() {
-    const currentUser = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
 
     const [isLoading, setIsLoading] = useState(true);
     const [companies, setCompanies] = useState([]);

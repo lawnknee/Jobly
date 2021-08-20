@@ -88,7 +88,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value={currentUser}>
+      <UserContext.Provider value={{ currentUser, setCurrentUser }}>
         <Navbar logout={logout} />
         <Routes login={login} register={register} update={update} />
       </UserContext.Provider>

@@ -28,7 +28,7 @@ import debounce from 'lodash.debounce';
  */
 
 export default function JobsContainer() {
-    const currentUser = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
 
     const [isLoading, setIsLoading] = useState(true);
     const [jobs, setJobs] = useState([]);

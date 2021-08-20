@@ -18,7 +18,7 @@ import React, { useContext } from "react";
  *  App -> Navbar
  */
 export default function Navbar({ logout }) {
-  const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   if (currentUser) {
     return (

@@ -14,7 +14,8 @@ import UserContext from "./userContext";
  *  Routes -> Homepage
  */
 export default function Homepage() {
-  const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
+  
   if (!currentUser) {
     return (
       <div className="Homepage">

@@ -16,12 +16,16 @@ import React, { useContext, useState } from "react";
  * JobList -> JobCard
  */
 export default function JobCard({ job }) {
-    const currentUser = useContext(UserContext);
+    const { currentUser, setCurrentUser } = useContext(UserContext);
     const [applied, setApplied] = useState(currentUser.applications.includes(job.id));
 
     async function apply() {
         try {
             await JoblyApi.apply(currentUser.username, job.id);
+            setCurrentUser(currentUser => {
+                currentUser.applications.push(job.id);
+                return currentUser;
+            });
             setApplied(true);
         } catch (errs) {
 

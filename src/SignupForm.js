@@ -19,7 +19,7 @@ import "./SignupForm.css";
  *  App -> Routes -> SignupForm
  */
 export default function SignupForm({ register }) {
-  const currentUser = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   const history = useHistory();
   const [formData, setFormData] = useState({});
