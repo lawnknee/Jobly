@@ -20,6 +20,7 @@ export default function CompanyDetails() {
   const { handle } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [company, setCompany] = useState(null);
+  const [page, setPage] = useState(0);
 
   useEffect(function getCompanyDetail() {
       async function fetchCompany() {
@@ -28,7 +29,7 @@ export default function CompanyDetails() {
         setIsLoading(false);
       }
       fetchCompany();
-    }, [company, handle]);
+    }, []);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -39,7 +40,7 @@ export default function CompanyDetails() {
         <small>{company.description}</small>
       </div>
 
-      <JobList jobs={company.jobs} />
+      <JobList jobs={company.jobs} page={page} setPage={setPage}/>
     </div>
   );
 }

@@ -24,7 +24,7 @@ import debounce from 'lodash.debounce';
  *  Context:
  *      - UserContext
  * 
- * JobsContainer -> { JobList, SearchBar }
+ *  JobsContainer -> { JobList, SearchBar }
  */
 
 export default function JobsContainer() {
@@ -46,6 +46,11 @@ export default function JobsContainer() {
         const jobs = await JoblyApi.getJobs(term);
         setJobs(jobs);
         setIsLoading(false);
+    }
+
+    function changeFilter(filter) {
+        setPage(0);
+        setFilter(filter);
     }
 
     // async function searchApplied(term) {
@@ -89,7 +94,7 @@ export default function JobsContainer() {
                 // searchApplied={debouncedSearchApplied}
                 // searchUnapplied={debouncedSearchUnapplied}
                 filter={filter}
-                setFilter={setFilter}/>
+                setFilter={changeFilter}/>
             <JobList jobs={jobsForDisplay} page={page} setPage={setPage}/>         
         </div>
     )
