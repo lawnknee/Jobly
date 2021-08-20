@@ -13,10 +13,10 @@ import React, { useState } from "react";
 // number of jobs to display on each page
 const PER_PAGE = 10;
 
-export default function JobList({ jobs }) {
-  const [currentPage, setCurrentPage] = useState(0);
+export default function JobList({ jobs, page, setPage }) {
+  // const [currentPage, setCurrentPage] = useState(0);
 
-  const offset = currentPage * PER_PAGE;
+  const offset = page * PER_PAGE;
   const pageCount = Math.ceil(jobs.length / PER_PAGE);
 
   const currentPageJobs = jobs.slice(offset, offset + PER_PAGE);
@@ -24,7 +24,7 @@ export default function JobList({ jobs }) {
   console.log("Jobs", currentPageJobs, offset, pageCount);
 
   function handlePageClick({ selected: selectedPage }) {
-    setCurrentPage(selectedPage);
+    setPage(selectedPage);
     window.scrollTo(0, 0);
   }
 
@@ -34,6 +34,7 @@ export default function JobList({ jobs }) {
         <JobCard key={job.id} job={job} />
       ))}
       <ReactPaginate
+        forcePage={page}
         previousLabel={"Previous"}
         nextLabel={"Next"}
         breakLabel={"..."}

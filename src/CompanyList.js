@@ -15,11 +15,11 @@ import "./CompanyList.css"
 // number of companies to display on each page
 const PER_PAGE = 10;
 
-export default function CompanyList({ companies }) {
-  const [currentPage, setCurrentPage] = useState(0);
+export default function CompanyList({ companies, page, setPage }) {
+  // const [currentPage, setCurrentPage] = useState(page);
 
   
-  const offset = currentPage * PER_PAGE;
+  const offset = page * PER_PAGE;
   const pageCount = Math.ceil(companies.length / PER_PAGE);
   
   const currentPageCompanies = companies.slice(offset, offset + PER_PAGE);
@@ -27,7 +27,7 @@ export default function CompanyList({ companies }) {
   console.log("Companies", currentPageCompanies, offset, pageCount);
 
   function handlePageClick({ selected: selectedPage }) {
-    setCurrentPage(selectedPage);
+    setPage(selectedPage);
     window.scrollTo(0,0);
   }
 
@@ -37,6 +37,7 @@ export default function CompanyList({ companies }) {
         <CompanyCard key={company.handle} company={company} />
       ))}
       <ReactPaginate
+        forcePage={page}
         previousLabel={"<"}
         nextLabel={">"}
         breakLabel={"..."}

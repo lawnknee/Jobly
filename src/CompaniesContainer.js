@@ -30,12 +30,14 @@ export default function CompaniesContainer() {
     const [isLoading, setIsLoading] = useState(true);
     const [companies, setCompanies] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [page, setPage] = useState(0);
 
     useEffect(function getCompanies() {
         search(searchTerm);
     }, [searchTerm]);
 
     async function search(term) {
+        setPage(0);
         setSearchTerm(term);
         const companies = await JoblyApi.getCompanies(term);
         setCompanies(companies);
@@ -53,7 +55,7 @@ export default function CompaniesContainer() {
     return (
         <div className="CompaniesContainer container">
             <SearchBar search={debouncedSearch} initialTerm={searchTerm} isJobs={false} />
-            <CompanyList companies={companies}/>
+            <CompanyList companies={companies} page={page} setPage={setPage}/>
         </div>
     );
 }
