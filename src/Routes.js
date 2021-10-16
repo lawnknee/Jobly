@@ -31,21 +31,27 @@ export default function Routes({ login, register, update }) {
           <Route exact path="/">
             <Homepage />
           </Route>
+
           <Route exact path="/companies">
             <CompaniesContainer />
           </Route>
+
           <Route exact path="/jobs">
             <JobsContainer />
           </Route>
+
           <Route exact path="/companies/:handle">
             <CompanyDetails />
           </Route>
+
           <Route exact path="/profile">
             <ProfileForm update={update} />
           </Route>
+
           <Route exact path="/logout">
             <Redirect to='/'/>
           </Route>
+          
           <Redirect to="/"/>
         </Switch>
       </div>
