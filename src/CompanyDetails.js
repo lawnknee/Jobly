@@ -29,7 +29,7 @@ export default function CompanyDetails() {
         setIsLoading(false);
       }
       fetchCompany();
-    }, []);
+    }, [handle]);
 
   if (isLoading) return <p>Loading...</p>;
 

@@ -1,6 +1,5 @@
 import CompanyCard from "./CompanyCard";
 import ReactPaginate from "react-paginate";
-import React, { useState } from "react";
 import "./CompanyList.css"
 
 
@@ -16,9 +15,6 @@ import "./CompanyList.css"
 const PER_PAGE = 10;
 
 export default function CompanyList({ companies, page, setPage }) {
-  // const [currentPage, setCurrentPage] = useState(page);
-
-  
   const offset = page * PER_PAGE;
   const pageCount = Math.ceil(companies.length / PER_PAGE);
   
