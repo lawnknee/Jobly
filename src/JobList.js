@@ -1,6 +1,5 @@
 import JobCard from "./JobCard";
 import ReactPaginate from "react-paginate";
-import React, { useState } from "react";
 
 /** Renders list of JobCards
  *
@@ -14,8 +13,6 @@ import React, { useState } from "react";
 const PER_PAGE = 10;
 
 export default function JobList({ jobs, page, setPage }) {
-  // const [currentPage, setCurrentPage] = useState(0);
-
   const offset = page * PER_PAGE;
   const pageCount = Math.ceil(jobs.length / PER_PAGE);
 
